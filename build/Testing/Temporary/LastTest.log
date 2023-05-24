@@ -1,0 +1,50 @@
+Start testing: May 22 15:33 BST
+----------------------------------------------------------
+4/4 Testing: test_Ising_Honey
+4/4 Test: test_Ising_Honey
+Command: "/home/admini/Downloads/SJTU-CP2022-23-Ising-Lecture0424_Square/SJTU-CP2022-23-Ising-Lecture0424_Square/SJTU CP2022-23/build/test_Ising_Honey"
+Directory: /home/admini/Downloads/SJTU-CP2022-23-Ising-Lecture0424_Square/SJTU-CP2022-23-Ising-Lecture0424_Square/SJTU CP2022-23/build
+"test_Ising_Honey" start time: May 22 15:33 BST
+Output:
+----------------------------------------------------------
+Randomness seeded to: 715363250
+System size in HoneyLatticeIsingSystem_MC_stderr_validation(...) ... 4 x 4
+T = 10 : Energy : Portion within CI (95%) = 0.88 (stddev for the binomial dist. = 0.0308221; tol. parameter = 3) ... OK
+T = 10 : C : Portion within CI (95%) = 0.94 (stddev for the binomial dist. = 0.0308221; tol. parameter = 3) ... OK
+T = 10 : M^2 : Portion within CI (95%) = 0.96 (stddev for the binomial dist. = 0.0308221; tol. parameter = 3) ... OK
+System size in HoneyLatticeIsingSystem_MC_stderr_validation(...) ... 4 x 4
+T = 5 : Energy : Portion within CI (95%) = 0.92 (stddev for the binomial dist. = 0.0308221; tol. parameter = 3) ... OK
+T = 5 : C : Portion within CI (95%) = 0.98 (stddev for the binomial dist. = 0.0308221; tol. parameter = 3) ... OK
+T = 5 : M^2 : Portion within CI (95%) = 0.98 (stddev for the binomial dist. = 0.0308221; tol. parameter = 3) ... OK
+System size in HoneyLatticeIsingSystem_MC_stderr_validation(...) ... 4 x 4
+T = 2.5 : Energy : Portion within CI (95%) = 0.98 (stddev for the binomial dist. = 0.0308221; tol. parameter = 3) ... OK
+T = 2.5 : C : Portion within CI (95%) = 0.96 (stddev for the binomial dist. = 0.0308221; tol. parameter = 3) ... OK
+T = 2.5 : M^2 : Portion within CI (95%) = 0.98 (stddev for the binomial dist. = 0.0308221; tol. parameter = 3) ... OK
+System size in HoneyLatticeIsingSystem_MC_stderr_validation(...) ... 4 x 4
+T = 1.66667 : Energy : Portion within CI (95%) = 0.98 (stddev for the binomial dist. = 0.0308221; tol. parameter = 3) ... OK
+T = 1.66667 : C : Portion within CI (95%) = 0.92 (stddev for the binomial dist. = 0.0308221; tol. parameter = 3) ... OK
+T = 1.66667 : M^2 : Portion within CI (95%) = 0.98 (stddev for the binomial dist. = 0.0308221; tol. parameter = 3) ... OK
+System size in HoneyLatticeIsingSystem_MC_stderr_validation(...) ... 4 x 4
+T = 1.25 : Energy : Portion within CI (95%) = 0.92 (stddev for the binomial dist. = 0.0308221; tol. parameter = 3) ... OK
+T = 1.25 : C : Portion within CI (95%) = 0.92 (stddev for the binomial dist. = 0.0308221; tol. parameter = 3) ... OK
+T = 1.25 : M^2 : Portion within CI (95%) = 0.92 (stddev for the binomial dist. = 0.0308221; tol. parameter = 3) ... OK
+System size in HoneyLatticeIsingSystem_MC_stderr_validation(...) ... 4 x 4
+T = 1 : Energy : Portion within CI (95%) = 0.9 (stddev for the binomial dist. = 0.0308221; tol. parameter = 3) ... OK
+T = 1 : C : Portion within CI (95%) = 0.94 (stddev for the binomial dist. = 0.0308221; tol. parameter = 3) ... OK
+T = 1 : M^2 : Portion within CI (95%) = 0.9 (stddev for the binomial dist. = 0.0308221; tol. parameter = 3) ... OK
+System size in HoneyLatticeIsingSystem_MC_stderr_validation(...) ... 4 x 4
+T = 0.909091 : Energy : Portion within CI (95%) = 0.88 (stddev for the binomial dist. = 0.0308221; tol. parameter = 3) ... OK
+T = 0.909091 : C : Portion within CI (95%) = 0.88 (stddev for the binomial dist. = 0.0308221; tol. parameter = 3) ... OK
+T = 0.909091 : M^2 : Portion within CI (95%) = 0.88 (stddev for the binomial dist. = 0.0308221; tol. parameter = 3) ... OK
+===============================================================================
+All tests passed (7 assertions in 1 test case)
+
+<end of output>
+Test time = 2108.35 sec
+----------------------------------------------------------
+Test Passed.
+"test_Ising_Honey" end time: May 22 16:08 BST
+"test_Ising_Honey" time elapsed: 00:35:08
+----------------------------------------------------------
+
+End testing: May 22 16:08 BST

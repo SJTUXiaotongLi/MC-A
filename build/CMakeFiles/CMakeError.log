@@ -1,0 +1,16 @@
+Performing C++ SOURCE FILE Test HAVE_FLAG__ffile_prefix_map__home_admini_Downloads_SJTU_CP2022_23_Ising_Lecture0424_Square_SJTU_CP2022_23_Ising_Lecture0424_Square_SJTU_CP2022_23_UnitTests_Catch2__ failed with the following output:
+Change Dir: /home/admini/Downloads/SJTU-CP2022-23-Ising-Lecture0424_Square/SJTU-CP2022-23-Ising-Lecture0424_Square/SJTU CP2022-23/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_f0355/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_f0355.dir/build.make CMakeFiles/cmTC_f0355.dir/build
+gmake[1]: Entering directory '/home/admini/Downloads/SJTU-CP2022-23-Ising-Lecture0424_Square/SJTU-CP2022-23-Ising-Lecture0424_Square/SJTU CP2022-23/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_f0355.dir/src.cxx.o
+/usr/bin/c++ -DHAVE_FLAG__ffile_prefix_map__home_admini_Downloads_SJTU_CP2022_23_Ising_Lecture0424_Square_SJTU_CP2022_23_Ising_Lecture0424_Square_SJTU_CP2022_23_UnitTests_Catch2__  -ffile-prefix-map=/home/admini/Downloads/SJTU-CP2022-23-Ising-Lecture0424_Square/SJTU-CP2022-23-Ising-Lecture0424_Square/SJTU CP2022-23/UnitTests/Catch2/= -std=gnu++11 -o CMakeFiles/cmTC_f0355.dir/src.cxx.o -c "/home/admini/Downloads/SJTU-CP2022-23-Ising-Lecture0424_Square/SJTU-CP2022-23-Ising-Lecture0424_Square/SJTU CP2022-23/build/CMakeFiles/CMakeTmp/src.cxx"
+cc1plus: error: invalid argument '/home/admini/Downloads/SJTU-CP2022-23-Ising-Lecture0424_Square/SJTU-CP2022-23-Ising-Lecture0424_Square/SJTU' to '-ffile-prefix-map'
+cc1plus: error: invalid argument '/home/admini/Downloads/SJTU-CP2022-23-Ising-Lecture0424_Square/SJTU-CP2022-23-Ising-Lecture0424_Square/SJTU' to '-ffile-prefix-map'
+gmake[1]: *** [CMakeFiles/cmTC_f0355.dir/build.make:78: CMakeFiles/cmTC_f0355.dir/src.cxx.o] Error 1
+gmake[1]: Leaving directory '/home/admini/Downloads/SJTU-CP2022-23-Ising-Lecture0424_Square/SJTU-CP2022-23-Ising-Lecture0424_Square/SJTU CP2022-23/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_f0355/fast] Error 2
+
+
+Source file was:
+int main() { return 0; }

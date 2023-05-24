@@ -1,0 +1,40 @@
+Notebook[{Cell[
+BoxData[{RowBox[{RowBox[{RowBox[{"Energy","[",RowBox[{"s00_",",","s10_",",","s01_",",","s11_"}],"]"}],":=",RowBox[
+{RowBox[{"(",RowBox[{"-","1"}],")"}],RowBox[{"(",RowBox[{RowBox[{"s00",RowBox[{"(",RowBox[
+{"s10","+","s01"}],")"}]}],"+",RowBox[{"s10",RowBox[{"(",RowBox[{"s00","+","s11"}],")"}]}],"+",RowBox[
+{"s01",RowBox[{"(",RowBox[{"s11","+","s00"}],")"}]}],"+",RowBox[{"s11",RowBox[{"(",RowBox[
+{"s01","+","s10"}],")"}]}]}],")"}]}]}],";"}],"\n",RowBox[{RowBox[{RowBox[{"EnergyByCode","[","sVal_","]"}],":=",RowBox[
+{"Module","[",RowBox[{RowBox[{"{",RowBox[{"s00",",","s10",",","s01",",","s11",",",RowBox[
+{"s","=","sVal"}]}],"}"}],",","\n",RowBox[{RowBox[{"s00","=",RowBox[{"If","[",RowBox[
+{RowBox[{RowBox[{"Mod","[",RowBox[{"s",",","2"}],"]"}],"==","1"}],",","1",",",RowBox[
+{"-","1"}]}],"]"}]}],";","\n",RowBox[{"s","=",RowBox[{"Quotient","[",RowBox[{"s",",","2"}],"]"}]}],";","\n",RowBox[
+{"s10","=",RowBox[{"If","[",RowBox[{RowBox[{RowBox[{"Mod","[",RowBox[{"s",",","2"}],"]"}],"==","1"}],",","1",",",RowBox[
+{"-","1"}]}],"]"}]}],";","\n",RowBox[{"s","=",RowBox[{"Quotient","[",RowBox[{"s",",","2"}],"]"}]}],";","\n",RowBox[
+{"s01","=",RowBox[{"If","[",RowBox[{RowBox[{RowBox[{"Mod","[",RowBox[{"s",",","2"}],"]"}],"==","1"}],",","1",",",RowBox[
+{"-","1"}]}],"]"}]}],";","\n",RowBox[{"s","=",RowBox[{"Quotient","[",RowBox[{"s",",","2"}],"]"}]}],";","\n",RowBox[
+{"s11","=",RowBox[{"If","[",RowBox[{RowBox[{RowBox[{"Mod","[",RowBox[{"s",",","2"}],"]"}],"==","1"}],",","1",",",RowBox[
+{"-","1"}]}],"]"}]}],";","\n",RowBox[{"(*"," ",RowBox[{RowBox[{"Print","[",RowBox[
+{"s00",",","s10",",","s01",",","s11",",","\",\"",",",RowBox[{"Energy","[",RowBox[
+{"s00",",","s10",",","s01",",","s11"}],"]"}]}],"]"}],";"}],"*)"}],"\n",RowBox[{"Energy","[",RowBox[
+{"s00",",","s10",",","s01",",","s11"}],"]"}]}]}],"\n","]"}]}],";"}],"\n",RowBox[{RowBox[
+{"Zthermal","[","b_","]"}],":=",RowBox[{"Sum","[",RowBox[{RowBox[{"Exp","[",RowBox[
+{RowBox[{"-","b"}],"*",RowBox[{"EnergyByCode","[","s","]"}]}],"]"}],",",RowBox[{"{",RowBox[
+{"s",",","0",",",RowBox[{RowBox[{"2","^","4"}],"-","1"}]}],"}"}]}],"]"}]}],"\n",RowBox[
+{RowBox[{"Ethermal","[","b_","]"}],":=",RowBox[{"D","[",RowBox[{RowBox[{"-",RowBox[
+{"Log","[",RowBox[{"Zthermal","[","b","]"}],"]"}]}],",","b"}],"]"}]}]}],"Input",CellLabel -> "In[1]:= ",
+ExpressionUUID -> "fa37782f-70a2-438f-8fd2-c7ee8e17632a"],Cell[
+CellGroupData[{Cell[
+BoxData[
+{RowBox[{"Simplify","[",RowBox[{"Zthermal","[","b","]"}],"]"}],"\n",RowBox[{"Simplify","[",RowBox[
+{"Ethermal","[","b","]"}],"]"}]}],"Input",CellLabel -> "In[5]:= ",ExpressionUUID -> "2886f1e7-e0b1-4a86-b733-e9ada91eb041"],Cell[
+BoxData[
+RowBox[{"2"," ",RowBox[{"(",RowBox[{"6","+",SuperscriptBox["\[ExponentialE]",RowBox[
+{RowBox[{"-","8"}]," ","b"}]],"+",SuperscriptBox["\[ExponentialE]",RowBox[{"8"," ","b"}]]}],")"}]}],
+StandardForm],"Output",CellLabel -> "Out[5]= ",ExpressionUUID -> "fde88daf-92ff-4396-b0f8-843d5ae3aff7"],Cell[
+BoxData[
+FractionBox[RowBox[{"8","-",RowBox[{"8"," ",SuperscriptBox["\[ExponentialE]",RowBox[
+{"16"," ","b"}]]}]}],RowBox[{"1","+",RowBox[{"6"," ",SuperscriptBox["\[ExponentialE]",
+RowBox[{"8"," ","b"}]]}],"+",SuperscriptBox["\[ExponentialE]",RowBox[{"16"," ","b"}]]}]],
+StandardForm],"Output",CellLabel -> "Out[6]= ",ExpressionUUID -> "d3f66ed0-e219-450a-b2ad-bac67f9069eb"]},
+Open],ExpressionUUID -> "8ac7292a-b22b-4292-8de1-deb7cb74c2ae"]},StyleDefinitions -> "Default.nb",
+FrontEndVersion -> "13.2 for Wolfram Cloud 1.64.2 (December 29, 2022)"]

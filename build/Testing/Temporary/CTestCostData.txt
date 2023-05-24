@@ -1,0 +1,5 @@
+test_Ising_Honey 1 2108.35
+test_misc1 1 0.00539754
+test_misc2 1 0.00505141
+test_Ising_Square 1 13.3248
+---
