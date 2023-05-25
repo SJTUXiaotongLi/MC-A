@@ -1,8 +1,8 @@
 #ifndef Ising_Square_HPP
 #define Ising_Square_HPP
 
-#include "Utils/IsingSystem.hpp"
-#include "Utils/xml-parser/ParameterBundle.hpp"
+#include "../../Utils/IsingSystem.hpp"
+#include "../../Utils/xml-parser/ParameterBundle.hpp"
 
 class SquareLatticeParameterBundle_exact : public ParameterBundle {
 public:
