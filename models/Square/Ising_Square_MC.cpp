@@ -43,7 +43,7 @@ int main(int argc, char **argv)
 	SquareLatticeIsingSystem system(L, data_bundle, mcs_thermalization, mcs_interval_btwn_bins);
 	
 	//insert
- 	std::ofstream file("a.txt");  // 打开文件
+ 	std::ofstream file("Square_MC.txt");  // 打开文件
     std::streambuf* backup = std::cout.rdbuf();  // 备份 cout 缓存
     std::cout.rdbuf(file.rdbuf());  // 将 cout 缓存指向文件
 
