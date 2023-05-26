@@ -2,6 +2,8 @@
 #include <iostream>
 #include "Ising_Kagome.hpp"
 
+#include<fstream>
+
 int main(int argc, char **argv)
 {
 	std::cout << "# MC simulation (Kagome lattice)" << std::endl;
@@ -39,6 +41,11 @@ int main(int argc, char **argv)
 	KagomeLatticeDataBundle data_bundle(n_sites, beta, n_bins, n_samples_per_bin);
 	KagomeLatticeIsingSystem system(L, data_bundle, mcs_thermalization, mcs_interval_btwn_bins);
 	
+	//insert
+ 	std::ofstream file("Kagome_MC.txt");  // 打开文件
+    std::streambuf* backup = std::cout.rdbuf();  // 备份 cout 缓存
+    std::cout.rdbuf(file.rdbuf());  // 将 cout 缓存指向文件
+
 	data_bundle.output_legends_MC(system._system_size());
 	system.run_MC();
 	

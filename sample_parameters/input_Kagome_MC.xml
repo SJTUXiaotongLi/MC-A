@@ -9,9 +9,9 @@
 		<Parameter Name="L1" Val="4" ></Parameter>
 	</System>
 	<Model>
-		<Parameter Name="Tmax" Val="6.5"></Parameter>
-		<Parameter Name="Tmin" Val="0.1"></Parameter>
-		<Parameter Name="N_TemperaturePoints" Val="16"></Parameter>
+		<Parameter Name="Tmax" Val="1.5"></Parameter>
+		<Parameter Name="Tmin" Val="2.5"></Parameter>
+		<Parameter Name="N_TemperaturePoints" Val="50"></Parameter>
 	</Model>
 	<MC>
 		<Parameter Name="n_bins" Val="16"></Parameter>

@@ -343,13 +343,13 @@ public:
 		return magz.at(beta_idx)._q_quar();
 	};
 	double _get_obs_magz_quar_per_spin(int beta_idx) const {
-		return _get_obs_magz_quar(beta_idx) / eval_n_spins_sq();
+		return _get_obs_magz_quar(beta_idx) / eval_n_spins_sq() / eval_n_spins_sq();
 	};
 	double _get_stderr_magz_quar(int beta_idx) const {
 		return magz.at(beta_idx)._stderr_q_quar();
 	};
 	double _get_stderr_magz_quar_per_spin(int beta_idx) const {
-		return _get_stderr_magz_quar(beta_idx) / eval_n_spins_sq();
+		return _get_stderr_magz_quar(beta_idx) / eval_n_spins_sq() / eval_n_spins_sq();
 	};
 	
 	void output_legends_MC(const std::string system_size) {
