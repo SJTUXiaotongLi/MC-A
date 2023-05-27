@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/Ising_Square_exact.dir/Utils/IsingSystem.cpp.o CMakeFiles/Ising_Square_exact.dir/Utils/Lattice.cpp.o CMakeFiles/Ising_Square_exact.dir/Utils/Observable.cpp.o CMakeFiles/Ising_Square_exact.dir/Utils/xml-parser/pugixml/pugixml.cpp.o CMakeFiles/Ising_Square_exact.dir/models/Square/Ising_Square_exact.cpp.o -o Ising_Square_exact 

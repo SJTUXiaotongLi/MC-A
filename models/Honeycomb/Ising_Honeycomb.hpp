@@ -1,12 +1,12 @@
-#ifndef Ising_Square_HPP
-#define Ising_Square_HPP
+#ifndef Ising_Honeycomb_HPP
+#define Ising_Honeycomb_HPP
 
 #include "../../Utils/IsingSystem.hpp"
 #include "../../Utils/xml-parser/ParameterBundle.hpp"
 
-class SquareLatticeParameterBundle_exact : public ParameterBundle {
+class HoneycombLatticeParameterBundle_exact : public ParameterBundle {
 public:
-	SquareLatticeParameterBundle_exact(std::string input_file, bool print_option_spec = false) : ParameterBundle(print_option_spec) {
+	HoneycombLatticeParameterBundle_exact(std::string input_file, bool print_option_spec = false) : ParameterBundle(print_option_spec) {
 		init(input_file);
 	};
 	
@@ -41,9 +41,9 @@ public:
 	double _Tmax() { return _value_dbl("Tmax"); };
 };
 
-class SquareLatticeParameterBundle_MC : public ParameterBundle {
+class HoneycombLatticeParameterBundle_MC : public ParameterBundle {
 public:
-	SquareLatticeParameterBundle_MC(std::string input_file, bool print_option_spec = false) : ParameterBundle(print_option_spec) {
+	HoneycombLatticeParameterBundle_MC(std::string input_file, bool print_option_spec = false) : ParameterBundle(print_option_spec) {
 		init(input_file);
 	};
 	
@@ -87,24 +87,21 @@ public:
 	int _mcs_interval_btwn_bins() { return _value_int("mcs_interval_btwn_bins"); };
 };
 
-class SquareLattice : public Lattice {
+class HoneycombLattice : public Lattice {
 private:
-	static const int N_SL_SqLatt = 1;
-	static const int z_common = 4;
-	static const int z_common_half = z_common / 2;
-	static constexpr int z_SqLatt[N_SL_SqLatt] = { z_common };
+	static const int N_SL_HcLatt = 2;
+	static const int z_common = 3;
+	static constexpr int z_HcLatt[N_SL_HcLatt] = { z_common, z_common };
 
 public:
-	SquareLattice(const std::vector<int>& L_spec)
-	: Lattice(N_SL_SqLatt, z_SqLatt, L_spec) {
+	HoneycombLattice(const std::vector<int>& L_spec)
+	: Lattice(N_SL_HcLatt, z_HcLatt, L_spec) {
 		setup_NN_network();
 	};
 	
-	~SquareLattice() {};
+	~HoneycombLattice() {};
 
 	int _z_common() const { return z_common; };
-	
-	int _z_common_half() const { return z_common_half; };
 
 	int _L0() const { return L[0]; };
 	int _L1() const { return L[1]; };
@@ -117,40 +114,64 @@ private:
 	int eval_NN_site_index(int sl_index, const std::vector<int>& r, int bond_index) {
 		std::vector<int> NN_r;
 		int NN_sl_index;
-		switch (bond_index) {
+		/*sublattice index == 0*/
+		if (sl_index == 0)
+		{
+			switch (bond_index)
+			{
+			case 0:
+				NN_r = r;
+				NN_sl_index = 1;
+				break;
+			case 1:
+				NN_r = r;
+				move_backward(NN_r, 0);
+				NN_sl_index = 1;
+				break;
+			case 2:
+				NN_r = r;
+				move_backward(NN_r, 1);
+				NN_sl_index = 1;
+				break;
+			default:
+				std::cerr << "HoneycombLattice::eval_NN_site_index> error" << std::endl;
+				exit(0);
+			}
+		}
+		/*sublattice index == 1*/
+		if (sl_index == 1)
+		{
+			switch (bond_index)
+			{
 			case 0:
 				NN_r = r;
 				move_forward(NN_r, 0);
-				NN_sl_index = sl_index;
+				NN_sl_index = 0;
 				break;
 			case 1:
 				NN_r = r;
 				move_forward(NN_r, 1);
-				NN_sl_index = sl_index;
+				NN_sl_index = 0;
 				break;
 			case 2:
 				NN_r = r;
-				move_backward(NN_r, 0);
-				NN_sl_index = sl_index;
-				break;
-			case 3:
-				NN_r = r;
-				move_backward(NN_r, 1);
-				NN_sl_index = sl_index;
+				NN_sl_index = 0;
 				break;
 			default:
-				std::cerr << "SquareLattice::eval_NN_site_index> error" << std::endl;
-				exit(1);
+				std::cerr << "HoneycombLattice::eval_NN_site_index> error" << std::endl;
+				exit(0);
+			}
 		}
+
 		return Site::eval_site_index(NN_sl_index, NN_r);
 	}
 };
 
-class SquareLatticeDataBundle : public DataBundle {
+class HoneycombLatticeDataBundle : public DataBundle {
 public:
-	SquareLatticeDataBundle(int n_spins_spec, const std::vector<double>& beta_spec, int n_bins_spec = 0, int n_samples_per_bin_spec = 0) : DataBundle(n_spins_spec, beta_spec, n_bins_spec, n_samples_per_bin_spec) {};
+	HoneycombLatticeDataBundle(int n_spins_spec, const std::vector<double>& beta_spec, int n_bins_spec = 0, int n_samples_per_bin_spec = 0) : DataBundle(n_spins_spec, beta_spec, n_bins_spec, n_samples_per_bin_spec) {};
 	
-	~SquareLatticeDataBundle() {};
+	~HoneycombLatticeDataBundle() {};
 	
 	void MC_normalize(int beta_idx) {
 		assert(check_if_complete_sampling_beta_index(beta_idx));
@@ -188,20 +209,19 @@ public:
 	};
 };
 
-class SquareLatticeIsingSystem : public LatticeIsingSystem<SquareLattice, SquareLatticeDataBundle> {
+class HoneycombLatticeIsingSystem : public LatticeIsingSystem<HoneycombLattice, HoneycombLatticeDataBundle> {
 public:
-	SquareLatticeIsingSystem(const std::vector<int>& L_spec, SquareLatticeDataBundle& MCDB_spec, const int mcs_thermalization_spec = 0, const int mcs_interval_btwn_bins_spec = 0)
-	: LatticeIsingSystem<SquareLattice, SquareLatticeDataBundle>(L_spec, eval_n_spins(L_spec), MCDB_spec, mcs_thermalization_spec, mcs_interval_btwn_bins_spec) {};
+	HoneycombLatticeIsingSystem(const std::vector<int>& L_spec, HoneycombLatticeDataBundle& MCDB_spec, const int mcs_thermalization_spec = 0, const int mcs_interval_btwn_bins_spec = 0)
+	: LatticeIsingSystem<HoneycombLattice, HoneycombLatticeDataBundle>(L_spec, eval_n_spins(L_spec), MCDB_spec, mcs_thermalization_spec, mcs_interval_btwn_bins_spec) {};
 
-	SquareLatticeIsingSystem(const std::vector<int>& L_spec) : LatticeIsingSystem<SquareLattice, SquareLatticeDataBundle>(L_spec, eval_n_spins(L_spec)){};
+	HoneycombLatticeIsingSystem(const std::vector<int>& L_spec) : LatticeIsingSystem<HoneycombLattice, HoneycombLatticeDataBundle>(L_spec, eval_n_spins(L_spec)){};
 	
-	~SquareLatticeIsingSystem() {};
+	~HoneycombLatticeIsingSystem() {};
 	
 	double eval_energy() const {
 		double energy_tmp = 0;
-		const int z_half =  lattice._z_common_half();
-		for (int site_idx = 0; site_idx < lattice._N_sites(); site_idx++) {
-			for (int bond_index = 0; bond_index < z_half; bond_index++) {
+		for (int site_idx = 0; site_idx < lattice._N_sites(); site_idx += 2) {
+			for (int bond_index = 0; bond_index < 3; bond_index++) {
 				const int j = lattice._NN_of_Site(site_idx, bond_index);
 				energy_tmp += J * spin[site_idx]._sz() * spin[j]._sz();
 			}
@@ -210,7 +230,7 @@ public:
 	};
 	
 	static int eval_n_spins(const std::vector<int>& L_spec) {
-		return L_spec.at(0) * L_spec.at(1);
+		return 2 * L_spec.at(0) * L_spec.at(1);
 	};
 	int _L0() const { return lattice._L0(); };
 	int _L1() const { return lattice._L1(); };
@@ -218,4 +238,4 @@ public:
 	std::string _system_size() const { return "# System size : " + std::to_string(_L0()) + " x " + std::to_string(_L1()); };
 };
 
-#endif /* Ising_Square_HPP */
+#endif /* Ising_Honeycomb_HPP */
