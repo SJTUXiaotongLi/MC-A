@@ -144,6 +144,13 @@ public:
 		} else return (database_entry->second)->_val_dbl();
 	};
 	
+	std::string _value_str(std::string parameter_name) {
+		std::map<std::string, Parameter*>::iterator database_entry = parameters_guide.find(parameter_name);
+		if (database_entry == parameters_guide.end()) {
+			std::cerr << parameter_name << " is not found" << std::endl;
+			exit(1);
+		} else return (database_entry->second)->_val_str();
+	};
 protected:
 	virtual void add_parameters() {
 		parameters.push_back(Parameter("ID", "string", print_option));

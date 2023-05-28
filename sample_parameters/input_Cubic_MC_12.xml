@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+
+<ParameterData>
+	<ID>
+		<Parameter Name="ID" Val="Cubic_12.txt" ></Parameter>
+	</ID>
+	<System>
+		<Parameter Name="L0" Val="12" ></Parameter>
+		<Parameter Name="L1" Val="12" ></Parameter>
+		<Parameter Name="L2" Val="12" ></Parameter>
+	</System>
+	<Model>
+		<Parameter Name="Tmax" Val="4.5"></Parameter>
+		<Parameter Name="Tmin" Val="3.0"></Parameter>
+		<Parameter Name="N_TemperaturePoints" Val="32"></Parameter>
+	</Model>
+	<MC>
+		<Parameter Name="n_bins" Val="16"></Parameter>
+		<Parameter Name="mcs_thermalization" Val="4000"></Parameter>
+		<Parameter Name="n_samples_per_bin" Val="16000"></Parameter>
+		<Parameter Name="mcs_interval_btwn_bins" Val="10000"></Parameter>
+	</MC>
+</ParameterData>

@@ -69,6 +69,11 @@ file( GLOB SRCS2_SQ models/Kagome/Ising_Kagome_MC.cpp ${UTILS} ${XML} *.hpp )
 add_executable(Ising_Kagome_MC ${SRCS2_SQ})
 target_compile_options(Ising_Kagome_MC PRIVATE -Wall -Wextra -O3 -static -DNDEBUG)
 
+### Target (normal MC; Cubic lattice)
+file( GLOB SRCS2_Cubic models/Cubic/Ising_Cubic_MC.cpp ${UTILS} ${XML} *.hpp )
+add_executable(Ising_Cubic_MC ${SRCS2_Cubic})
+target_compile_options(Ising_Cubic_MC PRIVATE -Wall -Wextra -O3 -static -DNDEBUG)
+
 
 ###### Unit tests ######
 enable_testing()
@@ -104,3 +109,9 @@ add_executable(test_Ising_Kagome UnitTests/models/Ising_Kagome_test.cpp ${UTILS}
 target_compile_options(test_Ising_Kagome PRIVATE -Wall -Wextra -O2)
 target_link_libraries(test_Ising_Kagome PRIVATE Catch2::Catch2WithMain)
 add_test(test_Ising_Kagome test_Ising_Kagome)
+
+### Unit test (normal MC; Cubic lattice)
+add_executable(test_Ising_Cubic UnitTests/models/Ising_Cubic_test.cpp ${UTILS} ${XML})
+target_compile_options(test_Ising_Cubic PRIVATE -Wall -Wextra -O2)
+target_link_libraries(test_Ising_Cubic PRIVATE Catch2::Catch2WithMain)
+add_test(test_Ising_Cubic test_Ising_Cubic)

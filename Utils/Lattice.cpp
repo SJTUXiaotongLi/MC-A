@@ -2,6 +2,7 @@
 #include "../models/Square/Ising_Square.hpp"
 #include "../models/Honeycomb/Ising_Honeycomb.hpp"
 #include "../models/Kagome/Ising_Kagome.hpp"
+#include "../models/Cubic/Ising_Cubic.hpp"
 
 int Site::dim;
 int Site::N_SL;
@@ -20,3 +21,9 @@ const int KagomeLattice::N_SL_KaLatt;
 const int KagomeLattice::z_common;
 const int KagomeLattice::z_common_half;
 constexpr int KagomeLattice::z_KaLatt[N_SL_KaLatt];
+
+const int CubicLattice::N_SL_CuLatt;
+const int CubicLattice::z_common;
+const int CubicLattice::z_common_half;
+constexpr int CubicLattice::z_CuLatt[N_SL_CuLatt];
+
